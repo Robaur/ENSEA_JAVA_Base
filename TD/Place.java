@@ -15,13 +15,11 @@ public class Place {
         this.Down=NULL;
         this.Left=NULL;
         this.Right=NULL;
+
+        this.ground_type=0;
     }
 
 
-    public Place(Place[] Neighbor,int[] place){
-            for (int k=0; k<4;k++){
-            }
-    }
 
 
 
