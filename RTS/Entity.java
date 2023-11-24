@@ -6,12 +6,13 @@ public class Entity {
     public void Entity(){
 
     }
-    public void Entity(String name, int HP,int x,int y,int team){
+    public void Entity(String name, int HP,int x,int y,int team, int diameter){
         this.Name=name;
         this.HP=HP;
         this.x=x;
         this.y=y;
         this.Team=team;
+        this.Diameter=diameter;
     }
 
     public void Entity (String name, String url){
@@ -38,9 +39,17 @@ public class Entity {
     public void setImage(String url){
         Image face=new Image(url);
         this.Sprite=face;
-
+    }
+    public void setName(String name) {
+        this.Name=name;
+    }
+    public void setTarget(int team) {
+        this.Team=team;
     }
 
+    public void setDiameter(int diameter) {
+        this.Diameter=diameter;
+    }
     //------------------------------------------------GETTER -----------------------------------------------------------
     public int getHP() {
         return HP;
@@ -57,28 +66,35 @@ public class Entity {
     public int getY() {
         return y;
     }
-
     public String getName() {
         return Name;
+    }
+    public int getDiameter() {
+        return Diameter;
+    }
+
+    public Sring getName() {
+        return Name;
+    }
+
+//-------------------------------------------------- Functions --------------------------------------------------------------
+
+    public void death(){
+        if (HP==0){
+            System.out.println("L'entité " + Name +" n'existe plus");
+
+        }
     }
 
 
 
-
-
-
-
-
-
-
-
-
  //-------------------------------------------------- VAR --------------------------------------------------------------
-    private String Name;
-    private int HP;
-    private int x;
-    private int y;
-
-    private int Team;
+    protected String Name;
+    protected int HP;
+    protected int x;
+    protected int y;
+    protected int Team;
+    private int diameter;
     private Image Sprite;
 }
+
