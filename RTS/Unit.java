@@ -26,7 +26,7 @@ public class Unit extends Entity {
         Random ran = new Random();
         Lane = ran.nextInt(3);
         
-        while (x = null || y= null){
+        while (x = null){
         if (Team ==1) {
             int x_limit = 100;//coordonnée x max de la map
             int y_limit = 0;
@@ -81,7 +81,7 @@ public class Unit extends Entity {
                 break;
             }
         }
-        this.Target=unit_detect(this, activeEntities);
+        this.Target=unit_detect(this,activeEntities);
         x_target=Target.x;
         y_target=Target.y;
     }
@@ -100,19 +100,19 @@ public class Unit extends Entity {
         else {
             unit_fight(Target);
         }
-        this.Target=unit_detect(this, activeEntities);
+        this.Target=unit_detect(this,activeEntities);
         x_target=Target.x;
         y_target=Target.y;
     }
 
-    public void unit_fight (Target target) throws InterruptedException {
+    public void unit_fight (Target) throws InterruptedException {
         while(this.HP>0) {
-            while(target.HP>0) {
-                target.HP = target.HP - this.Attack;
+            while(this.Target.HP>0) {
+                Target.HP = target.HP - this.Attack;
                 sleep(100);
             }
         }
-        System.out.println("Le combat est fini, le vainqueur est " + Target.name + ".");
+        System.out.println("Le combat est fini, le vainqueur est " + Target.Name + ".");
     }
 
 
