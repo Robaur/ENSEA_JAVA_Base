@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Onglet extends Button{
     public Onglet(String bob){
         super(bob);
+        Printed=false;
     }
 
     public void AddButton(Button Newbut){
@@ -29,38 +30,38 @@ public class Onglet extends Button{
     // BIG FUNCTION FOR PRINT ALL THE BUTTONS SOCKED IN
     public void PrintButtonList(Group base){
         int index=0;
-        if(Printed){
-        while(index!=-1){
-            try{
-                this.ButtonList.get(index).setLayoutY(this.getLayoutY()+(index+1)*50);
-                base.getChildren().add(this.ButtonList.get(index));
-                index++;
-                }
-            catch(Exception e){
-                index=-1;
-                }
+        boolean end=false;
+        if(!Printed){
+            while(!end){
+                try{
+                    this.ButtonList.get(index).setLayoutY(this.getLayoutY()+(index+1)*20);
+                    base.getChildren().add(this.ButtonList.get(index));
+                    index++;
+                    }
+                catch(Exception e){
+                    end=true;
+                    }
 
-        }
-        this.ChangePrinted();
-        }
+            }
+            }
         else{
-            while(index!=-1){
+            while(!end){
                 try{
                     base.getChildren().remove(this.ButtonList.get(index));
                     index++;
                 }
                 catch(Exception e){
-                    index=-1;
+                    end=true;
                 }
-                            }
+            }
             }
         this.ChangePrinted();
+        System.out.println('N');
     }
 
 
     public void ChangePrinted(){
-        if(this.Printed){this.Printed=false;}
-        else{this.Printed=true;}
+        this.Printed= !this.Printed;
     }
 
     ArrayList<Button> ButtonList = new ArrayList();

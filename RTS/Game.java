@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -25,9 +26,12 @@ public class Game extends Application {
         list.add(bob);
         Stage.AddButton(list);
         root.getChildren().add(Stage);
-
+        // action
         Stage.setOnAction(actionEvent->{Stage.PrintButtonList(root);});
+        //------------- FULL WORK ------------------------------------//
 
+        //test image
+             //   root.getChildren().add(Map);
 
     }
     public static void main (String[] args){
