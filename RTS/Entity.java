@@ -89,7 +89,7 @@ public class Entity {
 
 
  //-------------------------------------------------- VAR --------------------------------------------------------------
-    protected String Name;
+    protected str Name;
     protected int HP;
     protected int x;
     protected int y;
