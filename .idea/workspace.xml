@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7fa61b2-e9ad-403c-998e-45af722026d4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/RTS/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RTS/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RTS/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RTS/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RTS/RTS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RTS/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/RTS/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RTS/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/RTS/Unit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +47,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/anton/Downloads/openjfx-21.0.1_windows-x64_bin-sdk/javafx-sdk-21.0.1/lib",
     "project.structure.last.edited": "Global Libraries",
@@ -49,6 +55,11 @@
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "editor.preferences.tabs"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JavaFX"
+    ]
   }
 }]]></component>
   <component name="RunManager">

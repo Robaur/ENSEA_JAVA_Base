@@ -2,6 +2,15 @@ import javafx.scene.image.Image;
 //
 public class Entity {
 
+    //-------------------------------------------------- VAR --------------------------------------------------------------
+    protected str Name;
+    protected int HP;
+    protected int x;
+    protected int y;
+    protected int Team;
+    private int diameter;
+    private Image Sprite;
+
     private static List<Entity> activeEntities = new ArrayList<>();
 
     //-------------------------------------------------- VAR --------------------------------------------------------------
@@ -103,7 +112,3 @@ public class Entity {
             activeEntities.remove(this);
         }
     }
-
-
-}
-
