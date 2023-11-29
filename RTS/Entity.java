@@ -2,10 +2,18 @@ import javafx.scene.image.Image;
 //
 public class Entity {
 
-    //-------------------------------------------- CONSTRUCTOR ---------------------------------------------------------
-    public void Entity(){
+    private static List<Entity> activeEntities = new ArrayList<>();
 
-    }
+    //-------------------------------------------------- VAR --------------------------------------------------------------
+    protected String Name;
+    protected int HP;
+    protected int x;
+    protected int y;
+    protected int Team;
+    private int Diameter;
+    private Image Sprite;
+
+    //-------------------------------------------- CONSTRUCTOR ---------------------------------------------------------
     public void Entity(String name, int HP,int x,int y,int team, int diameter){
         this.Name=name;
         this.HP=HP;
@@ -13,6 +21,7 @@ public class Entity {
         this.y=y;
         this.Team=team;
         this.Diameter=diameter;
+        activeEntities.add(this);
     }
 
     public void Entity (String name, String url){
@@ -77,24 +86,24 @@ public class Entity {
         return Name;
     }
 
-//-------------------------------------------------- Functions --------------------------------------------------------------
+//-------------------------------------------------- METHOD --------------------------------------------------------------
+
+    public double distance(Entity autreEntity) {
+        return Math.sqrt(Math.pow(autreEntity.x - this.x, 2) + Math.pow(autreEntity.y - this.y, 2));
+    }
 
     public void death(){
-        if (HP==0){
-            System.out.println("L'entité " + Name +" n'existe plus");
-
+        if (this.HP==0) {
+            if (this.Diameter == 16) {
+                System.out.println(this.Name"is dead.");
+                }
+            if (this.Diameter == 32) {
+                System.out.println(this.Name"is destroyed.");
+            }
+            activeEntities.remove(this);
         }
     }
 
 
-
- //-------------------------------------------------- VAR --------------------------------------------------------------
-    protected String Name;
-    protected int HP;
-    protected int x;
-    protected int y;
-    protected int Team;
-    private int diameter;
-    private Image Sprite;
 }
 
