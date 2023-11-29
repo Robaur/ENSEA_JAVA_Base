@@ -9,15 +9,15 @@ public class Unit extends Entity {
     private int Range;
     private Entity Target;
 
-    public Unit(int Attack, int Lane, int Range, Entity Target,int x,int y,str name,int PV,int team) {
+    public Unit(int Attack, int Lane, int Range, Entity Target,int x,int y,str Name,int HP,int team) {
         this.Attack = Attack;
         this.Lane = Lane;
         this.Range = Range;
         this.Target = Target;
         this.x=x;
         this.y=y;
-        this.name=name;
-        this.PV=PV;
+        this.Name=Name;
+        this.HP=HP;
         this.team=team;
         //ajouter les variables de entity dedans
     }
@@ -86,17 +86,18 @@ public class Unit extends Entity {
         x_target=unit_detect()(1);
         y_target=unit_detect()(2);
     }
+
     
 }
 
     public void unit_fight (Target) throws InterruptedException {
-        while(this.PV>0) {
-            while(Target.PV>0) {
-                Target.PV = Target.PV - this.Attack;
+        while(this.HP>0) {
+            while(Target.HP>0) {
+                Target.HP = Target.HP - this.Attack;
                 sleep(100);
             }
         }
-        if (this.PV>0) {
+        if (this.HP>0) {
             System.out.println("Le combat est fini, le vainqueur est " + this.name + ".");
         }
         else {
