@@ -20,8 +20,9 @@ public class Unit extends Entity {
     }
 
     public void unit_move (){
-        int x_target=unit_detect()(1);
-        int y_target=unit_detect()(2);
+        this.Target=unit_detect(this, activeEntities);
+        int x_target=Target.x;
+        int y_target=Target.y;
         Random ran = new Random();
         Lane = ran.nextInt(3);
         
