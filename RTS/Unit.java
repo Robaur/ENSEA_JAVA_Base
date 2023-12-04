@@ -1,5 +1,11 @@
-import java.util.*;
-import static java.lang.Thread.sleep;
+package RTS;
+
+import static java.lang.Thread.*;
+
+import java.util.List;
+import java.util.Random;
+
+import javax.swing.text.html.parser.Entity;
 
 public class Unit extends Entity {
     private int Attack;
@@ -7,26 +13,27 @@ public class Unit extends Entity {
     private double Range;
     private Entity Target;
 
-    public Unit(int Attack, int Lane, double Range, Entity Target,int x,int y, str Name,int HP,int team) {
+
+    public Unit(int Attack, int Lane, double Range, Entity Target,int x,int y, String name,int HP,int team) {
         this.Attack = Attack;
         this.Lane = Lane;
         this.Range = Range;
         this.Target = unit_detect(this, activeEntities);
         this.x=x;
         this.y=y;
-        this.Name=Name;
+        this.Name=name;
         this.HP=HP;
         this.Team= team;
     }
 
-    public void unit_move (){
+    public void unit_move () throws InterruptedException {
         this.Target=unit_detect(this, activeEntities);
         int x_target=Target.x;
         int y_target=Target.y;
         Random ran = new Random();
         Lane = ran.nextInt(3);
         
-        while (x = null || y= null){
+        while (x == null) {
         if (Team ==1) {
             int x_limit = 100;//coordonnée x max de la map
             int y_limit = 0;
@@ -81,7 +88,7 @@ public class Unit extends Entity {
                 break;
             }
         }
-        this.Target=unit_detect(this, activeEntities);
+        this.Target=unit_detect(this,activeEntities);
         x_target=Target.x;
         y_target=Target.y;
     }
@@ -100,19 +107,19 @@ public class Unit extends Entity {
         else {
             unit_fight(Target);
         }
-        this.Target=unit_detect(this, activeEntities);
+        this.Target=unit_detect(this,activeEntities);
         x_target=Target.x;
         y_target=Target.y;
     }
 
-    public void unit_fight (Target target) throws InterruptedException {
+    public void unit_fight (Entity target) throws InterruptedException {
         while(this.HP>0) {
-            while(target.HP>0) {
-                target.HP = target.HP - this.Attack;
+            while(this.Target.HP>0) {
+                Target.HP = target.HP - this.Attack;
                 sleep(100);
             }
         }
-        System.out.println("Le combat est fini, le vainqueur est " + Target.name + ".");
+        System.out.println("Le combat est fini, le vainqueur est " + Target.Name + ".");
     }
 
 
