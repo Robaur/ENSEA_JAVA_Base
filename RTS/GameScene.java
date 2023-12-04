@@ -1,10 +1,12 @@
 import javafx.animation.AnimationTimer;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.application.Application;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.image.Image;
@@ -25,17 +27,19 @@ public class GameScene extends Scene{
         //test
         Onglet Stage = new Onglet("Batiment");
         Button Bat = new Button("Barracks");
-        //Bat.et
         ArrayList<Button> list=new ArrayList<Button>();
         list.add(Bat);
         Stage.AddButton(list);
         bob.getChildren().add(Stage);
         Stage.setOnAction(actionEvent->{Stage.PrintButtonList(bob);});
 
-        ImageView Blue  = new ImageView(new Image(new FileInputStream("C:\\Users\\auria\\Git_Project\\ENSEA_JAVA_Base\\RTS\\Sprites\\Blue_Base.png")));
-        Blue.setLayoutY(936);
-        Blue.setLayoutX(32);
-        bob.getChildren().add(Blue);
+        Batiment RedCastel = new Batiment("Red",5,936,32,0,5,"C:\\Users\\auria\\Git_Project\\ENSEA_JAVA_Base\\RTS\\Sprites\\Blue_Base.png");
+
+
+       ImageView LayRedCastel  = new ImageView(RedCastel.getSprite());
+        LayRedCastel.setLayoutY(936);
+        LayRedCastel.setLayoutX(32);
+        bob.getChildren().add(LayRedCastel);
 
         ImageView Red = new ImageView(new Image(new FileInputStream("C:\\Users\\auria\\Git_Project\\ENSEA_JAVA_Base\\RTS\\Sprites\\Red_Base.png")));
         Red.setLayoutY(32);
@@ -47,6 +51,41 @@ public class GameScene extends Scene{
         BOY.setLayoutX(900);
         bob.getChildren().add(BOY);
 
+
+        Bat.setOnAction(actionEvent -> {
+            boolean state =true;
+            if(state){
+                bob.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+                    @Override
+
+                    public void handle(MouseEvent mouseEvent) {
+                        ImageView Blue  = null;
+                            try {
+                                Blue = new ImageView(new Image(new FileInputStream("C:\\Users\\auria\\Git_Project\\ENSEA_JAVA_Base\\RTS\\Sprites\\Blue_Base.png")));
+                            } catch (FileNotFoundException e) {
+                                throw new RuntimeException(e);
+                            }
+                        Blue.setLayoutY(mouseEvent.getSceneY());
+                        Blue.setLayoutX(mouseEvent.getSceneX());
+                        bob.getChildren().add(Blue);
+
+                }
+
+                });
+                state=false;
+            }
+
+        });
+
+        AnimationTimer timer = new AnimationTimer() {
+            @Override
+
+            public void handle(long l) {
+              //  this.update(); //update la position de tout les entité bouge
+            }
+        };
+        timer.start();
 
 
     }
@@ -70,16 +109,11 @@ public class GameScene extends Scene{
         }
     }
 
-   // this.Up.setOnAction(action event->{
+ //   public Update(){
 
-    //});
-    AnimationTimer timer = new AnimationTimer() {
-        @Override
+   // }
 
-        public void handle(long l) {
-            // Camera.update(); update la position de tout les entité bouge
-            //lastUpdate= time;
-        }
-    };
+
     private Camera Cam;
+
 }

@@ -1,4 +1,6 @@
 import javafx.scene.image.Image;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +14,7 @@ public class Entities {
     protected int y;
     protected int Team;
     protected int Diameter;
-    protected Image Sprite;
-    protected int Unit_diameter = 16;
-
-    protected int Batiment_diameter = 32;
+    private Image Sprite;
 
     protected static List<Entities> activeEntities = new ArrayList<>();
 
@@ -30,6 +29,16 @@ public class Entities {
         this.Sprite = new Image(url);
         activeEntities.add(this);
     }
+    public Entities(String name, int HP, int x, int y, int team, int diameter) {
+        this.Name = name;
+        this.HP = HP;
+        this.x = x;
+        this.y = y;
+        this.Team = team;
+        this.Diameter = diameter;
+        activeEntities.add(this);
+    }
+
 
 
     //----------------------------------------------- SETTER -----------------------------------------------------------
@@ -47,8 +56,8 @@ public class Entities {
         this.y = y;
     }
 
-    public void setImage(String url) {
-        Image face = new Image(url);
+    public void setImage(String url) throws FileNotFoundException {
+        Image face = new Image(new FileInputStream(url));
         this.Sprite = face;
     }
 
@@ -89,7 +98,7 @@ public class Entities {
         return Diameter;
     }
 
-    public List<Entities> getactiveEntities (){return activeEntities; }
+    public Image getSprite(){ return Sprite;}
 
 //-------------------------------------------------- METHOD --------------------------------------------------------------
 
@@ -99,10 +108,10 @@ public class Entities {
 
     public void death() {
         if (this.HP == 0) {
-            if (this.Diameter == Unit_diameter) {
+            if (this.Diameter == 16) {
                 System.out.println(this.Name + "is dead.");
             }
-            if (this.Diameter == Batiment_diameter) {
+            if (this.Diameter == 32) {
                 System.out.println(this.Name + "is destroyed.");
             }
             activeEntities.remove(this);
