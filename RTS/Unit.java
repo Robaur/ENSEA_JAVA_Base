@@ -1,7 +1,11 @@
 package RTS;
 
-import java.util.*;
-import static java.lang.Thread.sleep;
+import static java.lang.Thread.*;
+
+import java.util.List;
+import java.util.Random;
+
+import javax.swing.text.html.parser.Entity;
 
 public class Unit extends Entity {
     private int Attack;
@@ -29,7 +33,7 @@ public class Unit extends Entity {
         Random ran = new Random();
         Lane = ran.nextInt(3);
         
-        while (x = null){
+        while (x == null) {
         if (Team ==1) {
             int x_limit = 100;//coordonnée x max de la map
             int y_limit = 0;
@@ -108,11 +112,7 @@ public class Unit extends Entity {
         y_target=Target.y;
     }
 
-<<<<<<< HEAD
-    public void unit_fight (Target) throws InterruptedException {
-=======
     public void unit_fight (Entity target) throws InterruptedException {
->>>>>>> 76ef09a38d413e71f985f3986144ac4d43cb1118
         while(this.HP>0) {
             while(this.Target.HP>0) {
                 Target.HP = target.HP - this.Attack;
