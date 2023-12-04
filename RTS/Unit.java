@@ -3,7 +3,6 @@ package RTS;
 import static java.lang.Thread.*;
 
 import java.util.List;
-import java.util.Random;
 
 import javax.swing.text.html.parser.Entity;
 
@@ -30,8 +29,6 @@ public class Unit extends Entity {
         this.Target=unit_detect(this, activeEntities);
         int x_target=Target.x;
         int y_target=Target.y;
-        Random ran = new Random();
-        Lane = ran.nextInt(3);
         
         while (x == null) {
         if (Team ==1) {
