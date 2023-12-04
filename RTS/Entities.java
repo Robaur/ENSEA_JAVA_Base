@@ -12,7 +12,10 @@ public class Entities {
     protected int y;
     protected int Team;
     protected int Diameter;
-    private Image Sprite;
+    protected Image Sprite;
+    protected int Unit_diameter = 16;
+
+    protected int Batiment_diameter = 32;
 
     protected static List<Entities> activeEntities = new ArrayList<>();
 
@@ -86,6 +89,8 @@ public class Entities {
         return Diameter;
     }
 
+    public List<Entities> getactiveEntities (){return activeEntities; }
+
 //-------------------------------------------------- METHOD --------------------------------------------------------------
 
     public double distance(Entities autreEntity) {
@@ -94,10 +99,10 @@ public class Entities {
 
     public void death() {
         if (this.HP == 0) {
-            if (this.Diameter == 16) {
+            if (this.Diameter == Unit_diameter) {
                 System.out.println(this.Name + "is dead.");
             }
-            if (this.Diameter == 32) {
+            if (this.Diameter == Batiment_diameter) {
                 System.out.println(this.Name + "is destroyed.");
             }
             activeEntities.remove(this);

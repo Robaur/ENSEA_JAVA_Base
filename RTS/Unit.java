@@ -6,7 +6,7 @@ import javax.swing.text.html.parser.Entity;
 
 public class Unit extends Entities {
     private int Attack;
-    protected int Lane;
+    private int Lane;
     private double Range;
     private Entities Target;
 
@@ -130,3 +130,4 @@ public class Unit extends Entities {
         return Target;
     }
 }
+
