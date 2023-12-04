@@ -1,33 +1,34 @@
-import static java.lang.Thread.*;
+package RTS;
 
+import static java.lang.Thread.*;
+import javafx;
 import java.util.List;
 import java.util.Random;
 
-
-
-public class Batiment extends Entities {
-
-
-    private final int Unit_Range = 64;
-    private final int Unit_Atk = 1;
-    private int Unit_HP = 3;
-    public Batiment(String name, int HP, int x, int y, int team, int diameter, String url){
-        super(name, HP, x, y, team, diameter, url);
+public class Batiment extends Entity {
+    public Batiment(String name, int HP, int x, int y, int team, int diameter, Image Sprite) {
+        this.Name = name;
+        this.HP = HP;
+        this.x = x;
+        this.y = y;
+        this.Team = team;
+        this.Diameter = diameter;
+        switch (team) {
+            case 0:
+                this.Sprite = new Image("Red_Base");
+            case 1:
+                this.Sprite = new Image("Blue_Base");
+        }
     }
+
+    int Unit_Range = 64;
+    int Unit_Atk = 1;
+    int Unit_HP = 3;
 
     public void spawn_unit() {
         Random ran = new Random();
-        Lane = ran.nextInt(3);
-        switch (Lane) {
-            case 0:
-                new_unit = Unit(1, Lane, Unit_Range, getX() );
-                break;
-            case 1:
-                new_unit = Unit(1, Lane, Unit_Range, );
-                break;
-            case 2:
-                new_unit = Unit(1, Lane, Unit_Range, );
-                break;
-        }
+        int Lane = ran.nextInt(3);
+        Unit unit = new Unit(Unit_Atk, Lane, Unit_Range, null, x - 32, y + 32, "Roger", Unit_HP, 0);
+
     }
 }
