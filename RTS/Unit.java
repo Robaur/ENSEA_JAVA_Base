@@ -1,3 +1,5 @@
+package RTS;
+
 import java.util.*;
 import static java.lang.Thread.sleep;
 
@@ -7,19 +9,20 @@ public class Unit extends Entity {
     private double Range;
     private Entity Target;
 
-    public Unit(int Attack, int Lane, double Range, Entity Target,int x,int y, str Name,int HP,int team) {
+
+    public Unit(int Attack, int Lane, double Range, Entity Target,int x,int y, String name,int HP,int team) {
         this.Attack = Attack;
         this.Lane = Lane;
         this.Range = Range;
         this.Target = unit_detect(this, activeEntities);
         this.x=x;
         this.y=y;
-        this.Name=Name;
+        this.Name=name;
         this.HP=HP;
         this.Team= team;
     }
 
-    public void unit_move (){
+    public void unit_move () throws InterruptedException {
         this.Target=unit_detect(this, activeEntities);
         int x_target=Target.x;
         int y_target=Target.y;
@@ -105,7 +108,11 @@ public class Unit extends Entity {
         y_target=Target.y;
     }
 
+<<<<<<< HEAD
     public void unit_fight (Target) throws InterruptedException {
+=======
+    public void unit_fight (Entity target) throws InterruptedException {
+>>>>>>> 76ef09a38d413e71f985f3986144ac4d43cb1118
         while(this.HP>0) {
             while(this.Target.HP>0) {
                 Target.HP = target.HP - this.Attack;
