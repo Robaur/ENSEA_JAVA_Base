@@ -34,7 +34,7 @@ public class Onglet extends Button{
         if(!Printed){
             while(!end){
                 try{
-                    this.ButtonList.get(index).setLayoutY(this.getLayoutY()+(index+1)*20);
+                    this.ButtonList.get(index).setLayoutY(this.getLayoutY()+(index+1)*25);
                     base.getChildren().add(this.ButtonList.get(index));
                     index++;
                     }
