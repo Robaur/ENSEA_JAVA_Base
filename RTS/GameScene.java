@@ -25,6 +25,7 @@ public class GameScene extends Scene{
 
 
         //test
+        String pwd = System.getProperty("user.dir");
         Onglet Stage = new Onglet("Batiment");
         Button Bat = new Button("Barracks");
         ArrayList<Button> list=new ArrayList<Button>();
@@ -33,7 +34,7 @@ public class GameScene extends Scene{
         bob.getChildren().add(Stage);
         Stage.setOnAction(actionEvent->{Stage.PrintButtonList(bob);});
 
-        Batiment RedCastel = new Batiment("Red",5,936,32,0,5,"C:\\Users\\auria\\Git_Project\\ENSEA_JAVA_Base\\RTS\\Sprites\\Blue_Base.png");
+        Batiment RedCastel = new Batiment("Red",5,936,32,0,5,pwd+"\\RTS\\Sprites\\Blue_Base.png");
 
 
        ImageView LayRedCastel  = new ImageView(RedCastel.getSprite());
@@ -41,12 +42,12 @@ public class GameScene extends Scene{
         LayRedCastel.setLayoutX(32);
         bob.getChildren().add(LayRedCastel);
 
-        ImageView Red = new ImageView(new Image(new FileInputStream("C:\\Users\\auria\\Git_Project\\ENSEA_JAVA_Base\\RTS\\Sprites\\Red_Base.png")));
+        ImageView Red = new ImageView(new Image(new FileInputStream(pwd+"\\RTS\\Sprites\\Red_Base.png")));
         Red.setLayoutY(32);
         Red.setLayoutX(936);
         bob.getChildren().add(Red);
 
-        ImageView BOY = new ImageView(new Image(new FileInputStream("C:\\Users\\auria\\Git_Project\\ENSEA_JAVA_Base\\RTS\\Sprites\\Red_Soldier.png")));
+        ImageView BOY = new ImageView(new Image(new FileInputStream(pwd+"\\RTS\\Sprites\\Red_Soldier.png")));
         BOY.setLayoutY(32);
         BOY.setLayoutX(900);
         bob.getChildren().add(BOY);
@@ -62,7 +63,7 @@ public class GameScene extends Scene{
                     public void handle(MouseEvent mouseEvent) {
                         ImageView Blue  = null;
                             try {
-                                Blue = new ImageView(new Image(new FileInputStream("C:\\Users\\auria\\Git_Project\\ENSEA_JAVA_Base\\RTS\\Sprites\\Blue_Base.png")));
+                                Blue = new ImageView(new Image(new FileInputStream(pwd+"\\RTS\\Sprites\\Blue_Base.png")));
                             } catch (FileNotFoundException e) {
                                 throw new RuntimeException(e);
                             }

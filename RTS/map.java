@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.File;
 import java.io.FileInputStream;
 
-public class map extends ImageView {
+public class    map extends ImageView {
     public map(String url) throws IOException{
         super(new Image(new FileInputStream(url)));
         XMax=getX();
