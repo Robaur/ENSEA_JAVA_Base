@@ -21,11 +21,11 @@ public class Unit extends Entities {
     }
 
     public void unit_move () throws InterruptedException {
-        this.Target=unit_detect(this, activeEntities);
+        this.Target=unit_detect(this, Entities.activeEntities);
         int x_target=Target.x;
         int y_target=Target.y;
         
-        while (x == null) {
+        while (Target == null) {
         if (Team ==1) {
             int x_limit = 100;//coordonnée x max de la map
             int y_limit = 0;
