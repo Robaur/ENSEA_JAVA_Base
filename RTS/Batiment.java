@@ -1,23 +1,18 @@
-package RTS;
-
 import static java.lang.Thread.*;
 
 import java.util.List;
 import java.util.Random;
 
-int Unit_Range = 64;
-int Unit_Atk = 1;
-int Unit_HP = 3;
 
 
-public class Batiment extends Entity {
-    public void Batiment(String name, int HP, int x, int y, int team, int diameter){
-        this.Name = name;
-        this.HP = HP;
-        this.x = x;
-        this.y = y;
-        this.Team = team;
-        this.Diameter = diameter;
+public class Batiment extends Entities {
+
+
+    private final int Unit_Range = 64;
+    private final int Unit_Atk = 1;
+    private int Unit_HP = 3;
+    public Batiment(String name, int HP, int x, int y, int team, int diameter, String url){
+        super(name, HP, x, y, team, diameter, url);
     }
 
     public void spawn_unit() {

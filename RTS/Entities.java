@@ -1,11 +1,9 @@
-package RTS;
-
 import javafx.scene.image.Image;
 import java.util.ArrayList;
 import java.util.List;
 
 //
-public class Entity {
+public class Entities {
 
     //-------------------------------------------------- VAR --------------------------------------------------------------
     protected String Name;
@@ -16,22 +14,18 @@ public class Entity {
     protected int Diameter;
     private Image Sprite;
 
-    protected static List<Entity> activeEntities = new ArrayList<>();
+    protected static List<Entities> activeEntities = new ArrayList<>();
 
     //-------------------------------------------- CONSTRUCTOR ---------------------------------------------------------
-    public void Entity(String name, int HP, int x, int y, int team, int diameter) {
+    public Entities(String name, int HP, int x, int y, int team, int diameter, String url) {
         this.Name = name;
         this.HP = HP;
         this.x = x;
         this.y = y;
         this.Team = team;
         this.Diameter = diameter;
-        activeEntities.add(this);
-    }
-
-    public void Entity(String name, String url) {
-        this.Name = name;
         this.Sprite = new Image(url);
+        activeEntities.add(this);
     }
 
 
@@ -94,7 +88,7 @@ public class Entity {
 
 //-------------------------------------------------- METHOD --------------------------------------------------------------
 
-    public double distance(Entity autreEntity) {
+    public double distance(Entities autreEntity) {
         return Math.sqrt(Math.pow(autreEntity.x - this.x, 2) + Math.pow(autreEntity.y - this.y, 2));
     }
 

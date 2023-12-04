@@ -1,28 +1,23 @@
-package RTS;
-
 import static java.lang.Thread.*;
 
 import java.util.List;
 
 import javax.swing.text.html.parser.Entity;
 
-public class Unit extends Entity {
+public class Unit extends Entities {
     private int Attack;
-    private int Lane;
+    protected int Lane;
     private double Range;
-    private Entity Target;
+    private Entities Target;
 
 
-    public Unit(int Attack, int Lane, double Range, Entity Target,int x,int y, String name,int HP,int team) {
+    public Unit(String name, int HP, int x, int y, int team, int diameter, String url,
+                    int attack, int lane, double range, Entities target) {
+        super(name, HP, x, y, team, diameter, url);
         this.Attack = Attack;
         this.Lane = Lane;
         this.Range = Range;
         this.Target = unit_detect(this, activeEntities);
-        this.x=x;
-        this.y=y;
-        this.Name=name;
-        this.HP=HP;
-        this.Team= team;
     }
 
     public void unit_move () throws InterruptedException {
@@ -109,7 +104,7 @@ public class Unit extends Entity {
         y_target=Target.y;
     }
 
-    public void unit_fight (Entity target) throws InterruptedException {
+    public void unit_fight (Entities target) throws InterruptedException {
         while(this.HP>0) {
             while(this.Target.HP>0) {
                 Target.HP = target.HP - this.Attack;
@@ -120,10 +115,10 @@ public class Unit extends Entity {
     }
 
 
-    public Entity unit_detect(Unit unitSource, List<Entity> ListEntities) {
-        Entity Target = null;
+    public Entities unit_detect(Unit unitSource, List<Entities> ListEntities) {
+        Entities Target = null;
         double distanceMin = this.Range;
-        for (Entity entity : ListEntities) {
+        for (Entities entity : ListEntities) {
             if (entity != unitSource && entity.Team !=this.Team) {
                 double distance = unitSource.distance(entity);
                 if (distance < distanceMin) {
