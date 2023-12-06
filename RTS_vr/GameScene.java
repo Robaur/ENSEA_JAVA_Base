@@ -23,6 +23,7 @@ public class GameScene extends Scene{
     public GameScene(Group bob) throws FileNotFoundException {
         super(bob);
         this.Cam=new Camera(1000,1000);
+        this.clk=0;
 
 
         //test
@@ -106,6 +107,10 @@ public class GameScene extends Scene{
     public Camera getCam(){
         return this.Cam;
     }
+    public int getClk() {
+        return clk;
+    }
+    public void setClk(int clk){this.clk=clk;}
 
 //______________________________________ OTHERS FUNCTION
     public void layoutMenu(Image brick){
@@ -114,15 +119,20 @@ public class GameScene extends Scene{
         }
     }
 
- public void  update(Group bob){
+    public void  update(Group bob){
+        if(this.getClk()==10){
             for(Entities e:Entities.activeEntities){
                 e.Update(bob);
             }
+            this.clk=0;
+        }
+        else{this.clk++;}
+    }
 
-            }
 
 
 
     private Camera Cam;
     public int clic;
+    private int clk;
 }
