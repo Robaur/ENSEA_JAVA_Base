@@ -134,6 +134,7 @@ public class Unit extends Entities {
         bob.getChildren().remove(this.getSprite());
         if(this.HP>0) {
 
+            unit_detect(this,activeEntities);
             try{this.unit_move();}
             catch(Exception e){System.out.println(e);}
 
