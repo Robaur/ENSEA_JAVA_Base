@@ -158,6 +158,13 @@ public abstract class Entities {
             this.Plotter(bob);
         }
     }
+    public static Entities ReturnRightNexus(int Team){
+        for(Entities e:activeEntities){
+            if(e.Name=="Red_Nexus" && e.Team==Team){return(e);};
+            if(e.Name=="Blue_Nexus" && e.Team==Team){return(e);};
+        }
+        return(null);
+    }
 
 
 

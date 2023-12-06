@@ -41,7 +41,10 @@ public class Batiment extends Entities {
         Random ran = new Random();
         int Lane = ran.nextInt(3);
         int team = ran.nextInt(2);
-        Unit unit = new Unit("bob", Unit_HP,0,0,team,16,this.getUrl_Soldier(),Unit_Atk, Lane, Unit_Range, null,1);
+        if(this.getTeam()==0){
+            Unit unit = new Unit("bob", Unit_HP,0,0,team,16,this.getUrl_Soldier(),Unit_Atk, Lane, Unit_Range, ReturnRightNexus(1),1);}
+        else{ Unit unit = new Unit("bob", Unit_HP,0,0,team,16,this.getUrl_Soldier(),Unit_Atk, Lane, Unit_Range, ReturnRightNexus(0),1);}
+
 
     }
 
