@@ -80,7 +80,7 @@ public class Game extends Application {
                         );
             }
             catch(Exception e){
-                System.out.println("Shitposter");}
+                System.out.println(e);}
             finally {
 
             }
