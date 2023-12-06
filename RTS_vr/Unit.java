@@ -25,7 +25,7 @@ public class Unit extends Entities {
         
         while (x == 0) {
         if (Team ==1) {
-            int x_limit = 100;//coordonnée x max de la map
+            int x_limit = 900;//coordonnée x max de la map
             int y_limit = 0;
             switch (Lane) {
                 case 0:
@@ -57,7 +57,7 @@ public class Unit extends Entities {
         }
         else{
             int x_limit=0 ;
-            int y_limit=100;//coordonnée y max de la map
+            int y_limit=500;//coordonnée y max de la map
             switch (Lane){
                 case 0:
                 if(this.y <y_limit){this.y++;}
