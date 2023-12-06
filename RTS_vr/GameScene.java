@@ -19,6 +19,7 @@ import java.util.ArrayList;
 //_________________________________ CONSTRUCTOR
 
 public class GameScene extends Scene{
+    String pwd = System.getProperty("user.dir");
     public GameScene(Group bob) throws FileNotFoundException {
         super(bob);
         this.Cam=new Camera(1000,1000);
@@ -33,17 +34,17 @@ public class GameScene extends Scene{
         bob.getChildren().add(Stage);
         Stage.setOnAction(actionEvent->{Stage.PrintButtonList(bob);});
 
-        Batiment RedCastel = new Batiment("Red",5,32,936,0,5,"C:\\Users\\auria\\Git_Project\\ENSEA_JAVA_Base\\RTS\\Sprites\\Red_Base_S.png",3);
+        Batiment RedCastel = new Batiment("Red",5,32,936,0,5,pwd+"\\RTS_vr\\Sprites\\Red_Base_S.png",3);
         RedCastel.Plotter(bob);
 
 
-        Batiment BlueCastel = new Batiment("Red",5,936,32,1,5,"C:\\Users\\auria\\Git_Project\\ENSEA_JAVA_Base\\RTS\\Sprites\\Blue_Base_S.png",3);
+        Batiment BlueCastel = new Batiment("Red",5,936,32,1,5,pwd+"\\RTS_vr\\Sprites\\Blue_Base_S.png",3);
         BlueCastel.Plotter(bob);
 
 
 
 
-        Unit BlueBoy = new Unit("Red",5,936,32,1,5,"C:\\Users\\auria\\Git_Project\\ENSEA_JAVA_Base\\RTS\\Sprites\\Blue_Soldier.png",2,0,5.0,RedCastel,1);
+        Unit BlueBoy = new Unit("Red",5,936,32,1,5,pwd+"\\RTS_vr\\Sprites\\Blue_Soldier.png",2,0,5.0,RedCastel,1);
         BlueBoy.Plotter(bob);
 
 
@@ -58,7 +59,7 @@ public class GameScene extends Scene{
                         ImageView Blue  = null;
                         if(clic==1) {
                             try {
-                                Blue = new ImageView(new Image(new FileInputStream("C:\\Users\\auria\\Git_Project\\ENSEA_JAVA_Base\\RTS\\Sprites\\Blue_Base.png")));
+                                Blue = new ImageView(new Image(new FileInputStream(pwd+"\\RTS_vr\\Sprites\\Blue_Base.png")));
                                 System.out.println(RedCastel.getNbSprite());
                                 bob.getChildren().remove(RedCastel.getSprite());
                                 RedCastel.IncrementationSprite();

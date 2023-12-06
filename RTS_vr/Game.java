@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class Game extends Application {
-    
+    String pwd = System.getProperty("user.dir");
     @Override
     public void start(Stage stage) {
         //Group root=new Group();
@@ -37,7 +37,8 @@ public class Game extends Application {
         //test image
             HBox Hbox= new HBox();
 
-           try{map Map =new map("C:\\Users\\auria\\Git_Project\\ENSEA_JAVA_Base\\RTS\\Sprites\\Background.png");
+
+           try{map Map =new map(pwd+"\\RTS_vr\\Sprites\\Background.png");
                 Group baby =new Group(Map);
                 GameScene SG =new GameScene(baby);
                 Map.setViewport(new Rectangle2D(0,0,1000,1000));

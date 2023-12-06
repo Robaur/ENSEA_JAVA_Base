@@ -1,1 +1,0 @@
-final peut etre utiliser comme un static mais rend la variable inchangeable au cours du temps une fois crée (bien pour la save)
