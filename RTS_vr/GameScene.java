@@ -34,11 +34,11 @@ public class GameScene extends Scene{
         bob.getChildren().add(Stage);
         Stage.setOnAction(actionEvent->{Stage.PrintButtonList(bob);});
 
-        Batiment RedCastel = new Batiment("Red",5,32,936,0,5,pwd+"\\RTS_vr\\Sprites\\Red_Base_S.png",3);
+        Batiment RedCastel = new Batiment("Red",5,32,936,0,5,pwd+"\\RTS_vr\\Sprites\\Red_Base_S.png",3,pwd+"\\RTS_vr\\Sprites\\Red_Soldier.png");
         RedCastel.Plotter(bob);
 
 
-        Batiment BlueCastel = new Batiment("Red",5,936,32,1,5,pwd+"\\RTS_vr\\Sprites\\Blue_Base_S.png",3);
+        Batiment BlueCastel = new Batiment("Red",5,936,32,1,5,pwd+"\\RTS_vr\\Sprites\\Blue_Base_S.png",3,pwd+"\\RTS_vr\\Sprites\\Red_Soldier.png");
         BlueCastel.Plotter(bob);
 
 
