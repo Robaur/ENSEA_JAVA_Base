@@ -38,7 +38,7 @@ public class Game extends Application {
             HBox Hbox= new HBox();
 
 
-           try{map Map =new map(pwd+"\\RTS_vr\\Sprites\\Background.png");
+           try{map Map =new map(pwd+"\\RTS_vr\\Sprites\\Background1.png");
                 Group baby =new Group(Map);
                 GameScene SG =new GameScene(baby);
                 Map.setViewport(new Rectangle2D(0,0,1000,1000));
